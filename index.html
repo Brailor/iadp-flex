@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flex IADP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <script>
+        let isLandScape = window.orientation === 90 || window.orientation === -90;
+
+        window.addEventListener('orientationchange', () => {
+            const landscapeCont = document.querySelector('.landscape')
+            const mainContainer = document.querySelector('.container')
+
+            if (isLandScape) {
+                mainContainer.classList.remove('landscape-active')
+                landscapeCont.classList.remove('active')
+                isLandScape = false;
+
+                return;
+            }
+
+            mainContainer.classList.add('landscape-active')
+            landscapeCont.classList.add('active')
+            isLandScape = true;
+
+        }, false)
+    </script>
+    <div class="container">
+        <div class="landscape">
+            <div class="header">Header</div>
+
+            <div class="duties">Duties</div>
+        </div>
+
+        <div class="calendar">Calendar</div>
+    </div>
+</body>
+
+</html>

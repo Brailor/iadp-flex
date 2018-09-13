@@ -1,0 +1,54 @@
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.header {
+  background-color: black;
+  text-align: center;
+  flex: 0.1 0;
+}
+.duties {
+  flex: 1 1 auto;
+  background-color: red;
+}
+
+.calendar {
+  flex: 1 1 auto;
+  background-color: blue;
+}
+
+.container > .landscape {
+  display: contents;
+}
+
+.container > .landscape.active {
+  display: block;
+}
+
+.container.landscape-active {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.container.landscape-active .calendar {
+  width: 40vw;
+}
+.container.landscape-active .duties {
+  width: 60vw;
+  height: 100%;
+}
