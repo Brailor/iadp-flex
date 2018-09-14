@@ -18,6 +18,23 @@
             const mainContainer = document.querySelector('.container')
 
             if (isLandScape) {
+
+                landscapeCont.removeChild(document.querySelector('.duties'))
+                mainContainer.removeChild(document.querySelector('.calendar'))
+
+                let newCalendar = document.createElement('div')
+                newCalendar.classList.add('calendar');
+
+                newCalendar.innerText = 'Calendar'
+
+                let newDuties = document.createElement('div')
+                newDuties.classList.add('duties');
+                newDuties.innerText = 'Duties'
+
+
+                mainContainer.appendChild(newDuties)
+                landscapeCont.appendChild(newCalendar)
+
                 mainContainer.classList.remove('landscape-active')
                 landscapeCont.classList.remove('active')
                 isLandScape = false;
@@ -25,15 +42,43 @@
                 return;
             }
 
+
+            landscapeCont.removeChild(document.querySelector('.calendar'))
+            mainContainer.removeChild(document.querySelector('.duties'))
+
+            let newCalendar = document.createElement('div')
+            newCalendar.classList.add('calendar');
+
+            newCalendar.innerText = 'Calendar'
+
+            let newDuties = document.createElement('div')
+            newDuties.classList.add('duties');
+            newDuties.innerText = 'Duties'
+
+
+            mainContainer.appendChild(newCalendar)
+            landscapeCont.appendChild(newDuties)
             mainContainer.classList.add('landscape-active')
             landscapeCont.classList.add('active')
             isLandScape = true;
 
+        }, false);
+
+        window.addEventListener('load', () => {
+            const calendarBtn = document.getElementById('calendar-toggle-btn')
+            calendarBtn && calendarBtn.addEventListener('click', calendarTogglerFn, false);
         }, false)
+
+        function calendarTogglerFn() {
+            console.log('clicked')
+        }
+
     </script>
     <div class="container">
         <div class="landscape">
-            <div class="header">Header</div>
+            <div class="header">Header
+                <button id="calendar-toggle-btn">Toggle Calendar</button>
+            </div>
 
             <div class="duties">Duties</div>
         </div>
